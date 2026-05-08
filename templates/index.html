@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Service Provider Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <header class="hero">
+        <h1>Service Provider Finder</h1>
+        <p>Find and manage local service providers such as plumbers, painters, tilers, gardeners and more.</p>
+    </header>
+
+    <!-- SERVICES -->
+    <section class="card">
+        <div class="section-header">
+            <h2>Services</h2>
+        </div>
+
+        <ul id="serviceList" class="service-list"></ul>
+
+        <div class="form-row">
+            <input type="text" id="serviceName" placeholder="New service name">
+            <button id="addService">Add Service</button>
+        </div>
+    </section>
+
+    <!-- PROVIDERS -->
+    <section class="card">
+        <div class="section-header">
+            <h2>Providers</h2>
+
+            <div style="display:flex; gap:10px;">
+                <select id="serviceFilter">
+                    <option value="">All Services</option>
+                </select>
+
+                <select id="sortRate">
+                    <option value="">Sort by Rate</option>
+                    <option value="asc">Lowest → Highest</option>
+                    <option value="desc">Highest → Lowest</option>
+                </select>
+            </div>
+    </div>
+
+        <table id="providerTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Rate</th>
+                    <th>Service</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <!-- ADD / UPDATE PROVIDER -->
+    <section class="card">
+        <h2>Add / Update Provider</h2>
+
+        <input type="hidden" id="providerId">
+
+        <div class="grid-form">
+            <input type="text" id="name" placeholder="Name">
+            <input type="text" id="email" placeholder="Email">
+            <input type="text" id="phone" placeholder="Phone">
+            <input type="number" id="rate" placeholder="Price per hour">
+            <select id="serviceSelect"></select>
+        </div>
+
+        <button id="saveProvider" class="primary-btn">Save</button>
+    </section>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}" defer></script>
+
+</body>
+</html>
